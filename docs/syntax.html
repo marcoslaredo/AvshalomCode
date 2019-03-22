@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>אבשלוםקוד | שפת תכנות כשרה בעברית</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="אבשלוםקוד" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Kosher scripting language" />
+<meta property="og:description" content="Kosher scripting language" />
+<link rel="canonical" href="https://kultuk.github.io/AvshalomCode/" />
+<meta property="og:url" content="https://kultuk.github.io/AvshalomCode/" />
+<meta property="og:site_name" content="אבשלוםקוד" />
+<script type="application/ld+json">
+{"@type":"WebSite","url":"https://kultuk.github.io/AvshalomCode/","headline":"אבשלוםקוד","name":"אבשלוםקוד","description":"שפת תכנות כשרה בעברית","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/AvshalomCode/assets/css/style.css?v=996596bf8e7c698e143a7f3cfe451102a9b5bafc">
+    <link rel="stylesheet" href="assets/css/style.css?v=996596bf8e7c698e143a7f3cfe451102a9b5bafc">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name"><a href="/AvshalomCode/index" class="dec-less">אבשלוםקוד</a></h1>
+      <h2 class="project-tagline"><a href="/AvshalomCode/index" class="dec-less">שפת תכנות כשרה בעברית</a></h2>
+      <!-- <a href="/AvshalomCode/index" class="btn">תחביר</a> -->
+      <a href="/AvshalomCode/sandbox" class="btn">ארגז חול</a>
+      <a href="/AvshalomCode/about" class="btn">אודות</a>
+    </section>
+
+    <section class="main-content">
+		<h1 id="what-is">מה זה תחביר?</h1>
+		<p>
+			תחביר, כמו בכל שפה (מדוברת או תכנותית), הוא בעצם החוקים שאיתם ניתן לבנות משפטים.
+			כשמדובר בפיתוח, למשפטים האלה קוראים ביטויים.
+			<br>
+			בדף זה תוכלו להבין איך בעצם כותבים ביטויים באבשלוםקוד, ואנסה לרכז את כל המידע הרלוונטי למי שמעוניין להתחיל לכתוב קוד.
+		</p>
+
+		<h2 id="base">חוקי הבסיס</h2>
+		<p>
+			לפני שנתחיל בכל האפשרויות, נגדיר כמה דברים כללים שצריך לשמור עליהם:
+		</p>
+		<ul>
+		  <li>לכל "שורה" בשפה קוראים ביטוי.</li>
+		  <li>כל תוכן שנכתב אחרי סולמית (#) הוא הערה ולא נחשב כקוד.</li>
+		  <li>בסוף כל ביטוי יש לכתוב נקודה-פסיק (;).</li>
+		  <li>הערך המוחזר מכל פעולה הוא ערך הביטוי האחרון שבה (<a href="#functions" class="dec-less">אפרט כאן</a>).</li>
+		  <li>שפה זו מורכבת רק מביטויים, אין בה הצהרות... בנתיים.</li>
+		</ul>
+		<h2 id="toc">הכלים</h2>
+		<dl>
+			<dt><a href="#vars" class="dec-less">השמה</a></dt>
+				<dd><a href="#vars" class="dec-less">או: איך אני שומר מידע?</a></dd>
+			<dt><a href="#conditions" class="dec-less">תנאים</a></dt>
+				<dd><a href="#conditions" class="dec-less">או: ואם ביום שלישי לא בא לי?</a></dd>
+			<dt><a href="#functions" class="dec-less">פעולות</a></dt>
+				<dd><a href="#functions" class="dec-less">או: איך נותנים שם למתכון?</a></dd>
+			<dt><a href="#lets-get-crazy" class="dec-less">סיכום</a></dt>
+				<dd><a href="#lets-get-crazy" class="dec-less">או: בואו נתפרע.</a></dd>
+		</dl>
+		<hr>
+		<h3 id="vars">השמה</h3>
+		<blockquote>
+			<p>
+				משתנה הוא בעצם מקום בזיכרון של המחשב שבו אנחנו שומרים מידע כלשהו. מידע זה יכול להיות מספר, משפט, או שלל סוגי הנתונים הקיימים בשפה.
+				<br>
+				השמה היא הפעולה שבה מכניסים ערך לתוך משתנה.
+			</p>
+			<h4>סוגי משתנים הקיימים באבשלוםקוד</h4>
+			<ul>
+				<li>דגל (שיכול להיות אמת או שקר)</li>
+				<li>מספר</li>
+				<li>מחרוזת (רצף אותיות או מילים שסביבם יש מרכאות - לדוגמה : "בננה")</li>
+				<li><small>עוד בעתיד</small></li>
+			</ul>
+
+		</blockquote>
+		<div class="language-js highlighter-rouge">
+			<div class="highlight">
+				<pre class="highlight">
+					<code>
+# משתנה מסוג דגל שרק יכול לקבל 2 ערכים - אמת או שקר.
+א = אמת;
+
+# משתנה מסוג מחרוזת.
+ב = "מחרוזת";	
+
+# משתנה מסוג מספר, יכול להיות או מספר שלם או שבר 
+ג = 3;		
+עשרוני.
+
+#על משתנים המכילים מספרים ניתן לבצע פעולות חשבוניות
+ד = ג + 6; 	# ד יהיה שווה ל-9
+ז = 1;
+ח = ז + ד;	# ח יהיה שווה ל-10
+					</code>
+				</pre>
+			</div>
+		</div>
+		<h3 id="conditions">תנאים</h3>
+		<blockquote>
+			<p>
+				לפעמים נרצה שביטוי כלשהו יקרה רק כשמתקיים תנאי מסויים.
+				<br>
+				לפעמים פעולה תקרה רק אם יום שלישי, לפעמים ביטוי יהיה רלוונטי רק עם א שווה ל-5.
+			</p>
+			<h4>כמה דברים לזכור</h4>
+			<ul>
+				<li>כשבודקים אם משתנה שווה לערך מסויים יש להשתמש בסימן שווה כפולה (==)</li>
+				<li>את כל הביטויים שיקרו כשהתנאי מתקיים נקיף בסוגריים מסולסלות (<code>{}</code>)</li>
+				<li>בהשוואה של מספרים ניתן גם לבדוק אם משתנה הוא גדול או קטן ממשתנה אחר (בשימוש בסימנים >,<,>=,<=)</li>
+				<li>על כל תנאי ניתן להגדיר מה יקרה אם הוא לא מתקיים (בעזרת שימוש במילה <code>אחרת</code>)</li>
+				<li>ניתן לשמור את התנאים במשתנה מסוג דגל</li>
+				<li><small>עוד בעתיד</small></li>
+			</ul>
+
+		</blockquote>
+		<div class="language-js highlighter-rouge">
+			<div class="highlight">
+				<pre class="highlight">
+					<code>
+# קודם כל נגדיר משתנים שנוכל לעבוד איתם.
+א = אמת;
+ב = 3;
+ג = "בננה";
+
+#בגלל ש-א כבר שווה לדגל, התוכנה תדפיס "אמת!".
+אם(א){
+	הדפס("אמת!");
+};
+
+# בגלל שהערך שבמשתנה ב יותר גדול מ-2, יודפס "יותר גדול מ-2!".
+אם(ב >= 2){
+	הדפס("יותר גדול מ-2!");
+};
+
+# בגלל שהערך שבמשתנה ג הוא "בננה", יודפס "אין לי תפוח".
+אם(ג == "תפוח"){
+	הדפס("יש לי תפוח!");
+}אחרת{
+	הדפס("אין לי תפוח!");
+};
+
+					</code>
+				</pre>
+			</div>
+		</div>
+		<h3 id="functions">פעולות</h3>
+		<blockquote>
+			<p>
+				לעיתים קרובות נמצא שיש ביטויים (או רצף ביטויים) שחוזרים על עצמם וכדי לחסוך זמן בלכתוב אותם שוב ושוב נוכל להגדיר פעולות.
+				<br>
+				פעולה היא כמו שם של מתכון. אם נרצה לבקש מחבר שיכין שוקו, בפעם הראשונה נצטרך להסביר לו את כל השלבים בהכנה (להוציא כוס מהארון, להוציא את האבקת שוקו מן המזווה, לקחת כפית, לשפוך את האבקה לכוס וכך כהלאה..), אבל בפעם הבאה שנבקש ממנו הוא כבר יכיר את הפעולה בשם "הכנת שוקו" ולא יצטרך פירוט להוראות.
+			</p>
+			<h4>כמה דברים לזכור</h4>
+			<ul>
+				<li>כשנרצה ליצור פעולה חדשה נתחיל בלכתוב את המילה <code>פעולה</code>, לאחר מכן נכתוב את שם הפעולה ובסוגריים את המשתנים שהיא <i>תקבל</i>, מופרדים בפסיק.</li>	
+				<li>הפעולה יכולה להשתמש במשתנים המועברים לה ולהחזיר ערך חדש לחלוטין.</li>
+				<li>הערך שבביטוי האחרון בפעולה יהיה הערך המוחזר.</li>
+				<li>כמו בתנאים, את כל הביטויים ששייכים לפעולה נקיף בסוגריים מסוסלות (<code>{}</code>)</li>
+				<li>כשנרצה להשתמש בפעולה בקוד שלנו, נכתוב את שם הפעולה ואז בסוגריים את המשתנים שנעביר אליה (אם יש כאלה בכלל)</li>
+			</ul>
+		</blockquote>
+		<div class="language-js highlighter-rouge">
+			<div class="highlight">
+				<pre class="highlight">
+					<code>
+# ראשית, נגדיר פעולה המבצעת חיבור של 2 השתנים שמועברים אליה.
+פעולה חיבור(ראשון,שני){
+	ראשון + שני;	
+};
+
+#אחרי שהגדרנו את הפעולה, נוכל להשתמש בה כמה שנרצה עם איזה ערכים שנבחר.
+חיבור(4,6); #יחזיר 10.
+
+#ניתן להעביר משתנים עם ערך מתאים.
+א = 5;
+ר = 3; 
+חיבור(א,ר); #יחזיר 8.
+
+#ניתן גם לשמור את הערך המוחזר במשתנה
+מ = חיבור(2,5); 
+הדפס(מ); #ידפיס 7.
+
+					</code>
+				</pre>
+			</div>
+		</div>
+		<h3 id="lets-get-crazy">סיכום</h3>
+		<blockquote>
+			<p>
+				עכשיו כשאנחנו כבר שולטים במשתנים, תנאים ופעולות, אנחנו יכולים לשלב את הכל ביחד כדי להשתמש במלוא יכולות השפה(<small>לבנתיים...</small>)
+				<br>
+				בשביל תרגול ראשוני אתאר כאן פעולה ותנסו לכתוב אותה בעצמכם. 
+			</p>
+			<h4>נגדיר פעולה בשם חילוק</h4>
+			<ul>
+				<li>הפעולה תקבל 2 משתנים, מונה ומכנה.</li>
+				<li>אם המכנה הוא אפס, הפעולה תדפיס "אי אפשר לחלק באפס!" ותחזיר 0.</li>
+				<li>בתוך הפעולה ניתן להשתמש בפעולה החשבונית <code>/</code> המבצעת חילוק.</li>
+				<li>כל פעולה ניתן לכתוב באין ספור דרכים. אם הפעולה שלכם שונה מהתשובה שכתובה למטה, תעברו לארגז חול כדי לבדוק את שכתבתם.</li>
+			</ul>
+		</blockquote>
+
+		<h4>מוכנים? הנה התשובה:</h4>
+		<div class="language-js highlighter-rouge">
+			<div class="highlight">
+				<pre class="highlight">
+					<code>
+פעולה חילוק(מונה,מכנה){
+	תוצאה = 0;
+	אם(מכנה == 0){
+		הדפס("לא ניתן לחלק באפס!")
+	}אחרת{
+		תוצאה = מונה / מכנה;
+	};
+	תוצאה;
+};
+					</code>
+				</pre>
+			</div>
+		</div>
+		<!-- <a class="dec-less" href="/avshalomecode/getting-started"> -->
+      <footer class="site-footer">
+		<p>שפה זו נוצרה על ידי סהר זהבי.</p>
+      </footer>
+    </section>
+  </body>
+</html>
