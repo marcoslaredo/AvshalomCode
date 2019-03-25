@@ -569,6 +569,7 @@ a:hover {
     .btn+.btn {
         margin-top: 1rem;
         margin-left: 0
+        margin-right: 0
     }
 }
 
