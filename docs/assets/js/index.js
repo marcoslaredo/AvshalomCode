@@ -385,7 +385,7 @@ function parse(input) {
             cond: cond,
             then: then,
         };
-        if (is_kw("אז")) {
+        if (is_kw("אחרת")) {
             input.next();
             ret.else = parse_expression();
         }
